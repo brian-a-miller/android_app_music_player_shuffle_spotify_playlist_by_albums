@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Author: Claude (Anthropic)
+    Last modified: 2026-06-20
+    Version log:
+      2026-06-20 - Created circular (oval) background for the centered bottom play/pause button.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#1DB954" />
+</shape>

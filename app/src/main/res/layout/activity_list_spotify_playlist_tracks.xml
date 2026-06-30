@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Author: Claude (Anthropic)
+    Last modified: 2026-06-20
+    Version log:
+      2026-06-20 - Added the "Shuffle by Albums" button (shuffleByAlbumsButton) next to "Play from Top".
+      2026-06-20 - Moved the play/pause control out of the top button row to a centered, circular
+                   button at the bottom (size set in code to ~1/3 of the screen width); the track
+                   list now sits above it via layout_weight.
+      2026-06-20 - Switched the play/pause icon to scalable white vectors with fitCenter so the
+                   symbol is large relative to the circle (icon padding is set in code).
+      2026-06-29 - Added a TODO to flank the play/pause button with Previous/Next track buttons.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tracksRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".ListSpotifyPlaylistTracks">
+
+    <TextView
+        android:id="@+id/playlistNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/trackCountTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/playFromTopButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/play_from_top"
+            android:enabled="false" />
+
+        <Button
+            android:id="@+id/shuffleByAlbumsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/shuffle_by_albums"
+            android:enabled="false" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/tracksListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+    <!-- Centered play/pause control. Width/height are set in code to ~1/3 of the screen width. -->
+    <!-- TODO (future enhancement): flank the play/pause button with transport controls -
+         a "Previous Track" button (|<) to its left and a "Next Track" button (>|) to its right.
+         Likely change this FrameLayout to a horizontal LinearLayout (gravity center) holding
+         previousTrackButton, playPauseButton, nextTrackButton; add ic_previous_white / ic_next_white
+         vector drawables and previous/next content-description strings. Wiring is in the activity. -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <ImageButton
+            android:id="@+id/playPauseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_pause_white"
+            android:background="@drawable/circle_button"
+            android:contentDescription="@string/pause_content_description"
+            android:enabled="false"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+</LinearLayout>

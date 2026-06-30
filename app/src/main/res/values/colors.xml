@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Author: Claude (Anthropic)
+    Last modified: 2026-06-23
+    Version log:
+      2026-06-23 - Added theme-aware track-list colors (light-mode values here; dark-mode overrides
+                   in res/values-night/colors.xml) so the list is white-on-black in dark mode and
+                   black-on-white in light mode.
+      2026-06-23 - Darkened the album-header background a shade for more contrast against the list.
+-->
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Track list colors. These are the LIGHT-mode values; values-night/colors.xml overrides them.
+         The currently-playing row uses these two swapped (track_row_text as background). -->
+    <color name="track_row_bg">#FFFFFFFF</color>
+    <color name="track_row_text">#FF000000</color>
+
+    <!-- Album-section header colors (light mode). -->
+    <color name="album_header_bg">#FFCCCCCC</color>
+    <color name="album_header_title">#FF000000</color>
+    <color name="album_header_artist">#FF555555</color>
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Author: Claude (Anthropic)
+    Last modified: 2026-06-29
+    Version log:
+      2026-06-29 - Added FOREGROUND_SERVICE / FOREGROUND_SERVICE_MEDIA_PLAYBACK / POST_NOTIFICATIONS
+                   permissions and the PlaybackService declaration (mediaPlayback type) so
+                   shuffle-by-album can keep playing in the background. Removed a duplicate <queries>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Foreground service keeps shuffle-by-album running while the app is backgrounded. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+    <!-- Lets the foreground-service notification appear on Android 13+. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Lets App Remote find and bind to the installed Spotify app on Android 11+. -->
+    <queries>
+        <package android:name="com.spotify.music" />
+    </queries>
+
+    <application
+        android:name=".MyAlbumDjApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MySpotifyAppWithAlbumShuffle"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".SpotifyLoginActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+
+            <!-- Catches the browser redirect back from Spotify (myalbumdj://callback). -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="${redirectSchemeName}"
+                    android:host="${redirectHostName}" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ListSpotifyPlaylists"
+            android:exported="false" />
+
+        <activity
+            android:name=".ListSpotifyPlaylistTracks"
+            android:exported="false" />
+
+        <!-- Runs the shuffle-by-album loop in the background; mediaPlayback justifies staying alive. -->
+        <service
+            android:name=".PlaybackService"
+            android:exported="false"
+            android:foregroundServiceType="mediaPlayback" />
+
+    </application>
+
+</manifest>

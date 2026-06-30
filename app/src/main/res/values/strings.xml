@@ -1,0 +1,46 @@
+<resources>
+    <!--
+        Author: Claude (Anthropic)
+        Last modified: 2026-06-20
+        Version log:
+          2026-06-20 - Added shuffle_by_albums and shuffle_no_albums strings for the
+                       shuffle-by-album feature.
+          2026-06-29 - Added the shuffle_channel_* and shuffle_notification_* strings used by the
+                       PlaybackService foreground notification.
+    -->
+    <string name="app_name">MySpotifyAppWithAlbumShuffle</string>
+    <string name="welcome_title">Album Shuffle for Spotify</string>
+    <string name="log_in_to_spotify">Log in to Spotify</string>
+    <string name="list_spotify_playlists">List Spotify Playlists</string>
+    <string name="log_out_of_spotify">Log out of Spotify</string>
+    <string name="login_in_progress">Connecting to Spotify…</string>
+    <string name="login_success">Logged in to Spotify.</string>
+    <string name="login_cancelled">Login cancelled.</string>
+    <string name="login_error">Login failed: %1$s</string>
+    <string name="login_not_configured">Spotify Client ID is not set. Add it to secrets.properties.</string>
+    <string name="playlists_title">Your Playlists</string>
+    <string name="playlists_loading">Loading your playlists…</string>
+    <string name="playlists_empty">You haven\'t created any playlists yet.</string>
+    <string name="playlists_error">Couldn\'t load playlists: %1$s</string>
+    <string name="playlists_not_logged_in">Not logged in. Please log in again.</string>
+    <string name="tracks_loading">Loading tracks…</string>
+    <string name="tracks_empty">This playlist has no tracks.</string>
+    <string name="tracks_error">Couldn\'t load tracks: %1$s</string>
+    <string name="play_from_top">Play from Top</string>
+    <string name="shuffle_by_albums">Shuffle by Albums</string>
+    <string name="shuffle_no_albums">No albums to shuffle.</string>
+    <string name="shuffle_channel_name">Album shuffle playback</string>
+    <string name="shuffle_channel_description">Keeps shuffle-by-album playing in the background.</string>
+    <string name="shuffle_notification_title">Shuffling albums</string>
+    <string name="shuffle_notification_text">From “%1$s”</string>
+    <string name="shuffle_notification_text_generic">Playing albums in random order</string>
+    <string name="shuffle_notification_stop">Stop</string>
+    <string name="play_connect_failed">Couldn\'t connect to Spotify: %1$s</string>
+    <string name="play_failed">Couldn\'t start playback: %1$s</string>
+    <string name="pause_content_description">Pause</string>
+    <string name="play_content_description">Play</string>
+    <plurals name="track_count">
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+</resources>

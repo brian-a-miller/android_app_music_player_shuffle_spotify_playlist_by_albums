@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--
+        Author: Claude (Anthropic)
+        Last modified: 2026-06-22
+        Version log:
+          2026-06-22 - Changed the light-theme parent from Theme.MaterialComponents.DayNight.DarkActionBar
+                       to Theme.Material3.DayNight.NoActionBar to match values-night/themes.xml, so
+                       buttons keep the Material3 rounded (pill) shape in both light and dark mode.
+    -->
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MySpotifyAppWithAlbumShuffle" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.MySpotifyAppWithAlbumShuffle" parent="Base.Theme.MySpotifyAppWithAlbumShuffle" />
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Author: Claude (Anthropic)
+    Last modified: 2026-06-29
+    Version log:
+      2026-06-29 - Added a TODO for a playlist filter/search field above the list.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".ListSpotifyPlaylists">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/playlists_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- TODO (future enhancement): add a filter/search field (EditText, e.g. id=playlistFilter)
+         here, above the list. As the user types, limit the list to playlists whose name contains
+         the entered text as a case-insensitive substring. Wiring is in ListSpotifyPlaylists
+         (add a TextWatcher that filters the full list). -->
+
+    <TextView
+        android:id="@+id/statusTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/playlistsListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone" />
+
+</LinearLayout>

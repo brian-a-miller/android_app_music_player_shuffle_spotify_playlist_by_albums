@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Author: Claude (Anthropic)
+    Last modified: 2026-06-23
+    Version log:
+      2026-06-23 - Created: dark-mode overrides for the track-list colors (white-on-black rows, dark
+                   album header). Light-mode defaults live in res/values/colors.xml.
+      2026-06-23 - Darkened the album-header background a shade for more contrast against the list.
+-->
+<resources>
+    <!-- Track list colors (dark mode). The currently-playing row swaps these two. -->
+    <color name="track_row_bg">#FF000000</color>
+    <color name="track_row_text">#FFFFFFFF</color>
+
+    <!-- Album-section header colors (dark mode). -->
+    <color name="album_header_bg">#FF1E1E1E</color>
+    <color name="album_header_title">#FFFFFFFF</color>
+    <color name="album_header_artist">#FFBBBBBB</color>
+</resources>
